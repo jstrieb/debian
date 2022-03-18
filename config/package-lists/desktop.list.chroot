@@ -4,6 +4,7 @@ network-manager
 fonts-quicksand
 plymouth-label
 firefox-esr
+sudo
 curl
 zip
 wget
