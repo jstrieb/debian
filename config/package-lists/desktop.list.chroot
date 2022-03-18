@@ -1,6 +1,5 @@
 i3
 xorg
-xserver-xorg
 network-manager
 fonts-quicksand
 plymouth-label
@@ -40,3 +39,6 @@ p7zip-full
 magic-wormhole
 links
 xterm
+rsync
+acpi
+gparted
