@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+lb config noauto \
+	--architecture amd64 \
+	--binary-filesystem fat32 \
+	--cache true \
+	--color \
+	--debian-installer live \
+	--debian-installer-gui true \
+	--debug --archive-areas 'main contrib non-free' \
+	"${@}"
