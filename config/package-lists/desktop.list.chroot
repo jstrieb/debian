@@ -3,7 +3,7 @@ xorg
 network-manager
 fonts-quicksand
 plymouth-label
-firefox
+firefox-esr
 curl
 zip
 wget
