@@ -3,6 +3,7 @@ xorg
 network-manager
 fonts-quicksand
 plymouth-label
+plymouth
 firefox-esr
 sudo
 curl
@@ -43,3 +44,6 @@ xterm
 rsync
 acpi
 gparted
+rlwrap
+info
+macchanger
