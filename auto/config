@@ -9,5 +9,6 @@ lb config noauto \
 	--color \
 	--debian-installer live \
 	--debian-installer-gui true \
-	--debug --archive-areas 'main contrib non-free' \
+	--debug \
+  --archive-areas 'main contrib non-free' \
 	"${@}"
