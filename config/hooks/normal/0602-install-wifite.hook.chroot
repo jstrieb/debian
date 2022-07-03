@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e;
+
+pushd /tmp;
+
+git clone "https://github.com/derv82/wifite2.git";
+pushd wifite2;
+python3 setup.py install;
+popd;
+rm \
+  --recursive \
+  --force \
+  wifite2;
+
+popd;
