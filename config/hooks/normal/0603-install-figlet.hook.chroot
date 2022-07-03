@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -e;
+
+pushd /tmp;
+git clone "https://github.com/cmatsuoka/figlet.git";
+pushd figlet/fonts;
+
+# Download additional figlet fonts
+curl "http://patorjk.com/software/taag/" \
+  | grep --only-matching "[[:alnum:]][[:alnum:][:space:]]*\.flf" \
+  | sort \
+  | uniq \
+  | sed "s/^\(.*\)/\"\1\"\n\"http:\/\/patorjk.com\/software\/taag\/fonts\/\1\"/g" \
+  | xargs -L 2 -P 16 \
+    curl --silent --output;
+
+cd ..;
+make;
+sudo make install;
+popd;
+rm \
+  --recursive \
+  --force \
+  figlet;
+popd;
