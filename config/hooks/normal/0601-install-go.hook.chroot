@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -e;
+
+rm \
+  --recursive \
+  --force \
+  /usr/local/go;
+wget \
+  --output-document /tmp/go1.18.3.linux-amd64.tar.gz \
+  "https://go.dev/dl/go1.18.3.linux-amd64.tar.gz";
+tar \
+  --directory /usr/local \
+  --extract \
+  --gzip \
+  --flie /tmp/go1.18.3.linux-amd64.tar.gz;
+rm \
+  --force \
+  /tmp/go1.18.3.linux-amd64.tar.gz;
+
+echo '' >> /etc/profile
+echo 'export PATH="$PATH:/usr/local/go/bin"' >> /etc/profile
+echo '' >> /etc/profile
