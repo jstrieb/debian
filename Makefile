@@ -11,6 +11,7 @@ live-image-amd64.hybrid.iso: container
 .PHONY: container
 container:
 	-docker kill builder
+	sleep 5  # Wait for the container to terminate
 	docker run \
 		--rm \
 		--detach \
