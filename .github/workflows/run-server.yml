@@ -3,7 +3,7 @@
 # anything up since it starts fresh every time.
 #
 # https://github.com/jstrieb/ctf-collab
-# 
+#
 # Created by Jacob Strieb December 2020
 
 name: Run Interactive Environment
@@ -102,6 +102,13 @@ jobs:
             "https://github.com/tsl0922/ttyd/releases/download/1.6.1/ttyd_linux.x86_64"
           chmod +x ttyd
           sudo mv ttyd /usr/local/bin/ttyd
+
+          echo 'cd ~/work/debian-x205t/debian-x205t \
+            && tmux new-session \
+              -c ~/work/debian-x205t/debian-x205t \
+              -s "debian""$((RANDOM))" \
+              -t debian' \
+            >> ~/ttyd_run.sh
 
           # Run ttyd in the background as a daemon
           start-stop-daemon \
