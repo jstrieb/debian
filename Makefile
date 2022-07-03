@@ -1,11 +1,23 @@
-live-image-amd64.hybrid.iso: 
-	export BUILD_DIR="$(shell pwd)"
+live-image-amd64.hybrid.iso: container
+	docker exec \
+		--interactive \
+		--tty \
+		--privileged \
+		--workdir /root/build \
+		builder \
+		bash -c "lb config \
+			&& lb build"
+
+.PHONY: container
+container:
+	-docker kill builder
 	docker run \
+		--rm \
 		--detach \
 		--interactive \
 		--tty \
 		--privileged \
-		--volume "$(BUILD_DIR)":/root/build \
+		--volume "$(shell pwd)":/root/build \
 		--name builder \
 		debian:latest \
 		sleep infinity
@@ -17,11 +29,4 @@ live-image-amd64.hybrid.iso:
 		builder \
 		bash -c "apt update \
 			&& apt install --yes live-build fdisk"
-	docker exec \
-		--interactive \
-		--tty \
-		--privileged \
-		--workdir /root/build \
-		builder \
-		bash -c "lb config \
-			&& lb build"
+
