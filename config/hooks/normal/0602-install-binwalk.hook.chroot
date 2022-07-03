@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -e;
+
+pushd /tmp;
+
+git clone "https://github.com/ReFirmLabs/binwalk.git";
+pushd binwalk;
+bash deps.sh --yes;
+python3 setup.py install;
+popd;
+rm \
+  --recursive \
+  --force \
+  binwalk;
+
+popd;
