@@ -8,7 +8,7 @@ git clone "https://github.com/jstrieb/dotfiles.git";
 cd dotfiles;
 cp \
   --recursive \
-  .* \
+  $(find . -mindepth 1 -maxdepth 1 -name ".*") \
   /etc/skel/;
 cp \
   motd \
