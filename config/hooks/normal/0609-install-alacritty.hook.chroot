@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e;
+
+wget \
+  --output-document /tmp/alacritty_0.10.1-1_amd64_bullseye.deb \
+  "https://github.com/barnumbirr/alacritty-debian/releases/download/v0.10.1-1/alacritty_0.10.1-1_amd64_bullseye.deb";
+dpkg \
+  --install \
+  /tmp/alacritty_0.10.1-1_amd64_bullseye.deb;
+rm \
+  --force \
+  /tmp/alacritty_0.10.1-1_amd64_bullseye.deb;
+
