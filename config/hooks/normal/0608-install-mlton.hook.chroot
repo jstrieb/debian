@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -e;
+
+pushd /tmp;
+
+wget \
+  --output-document mlton-20210117-1.amd64-linux-glibc2.31.tgz \
+  "https://sourceforge.net/projects/mlton/files/mlton/20210117/mlton-20210117-1.amd64-linux-glibc2.31.tgz";
+sudo tar \
+  --directory /usr/local \
+  --extract \
+  --gzip \
+  --file mlton-20210117-1.amd64-linux-glibc2.31.tgz;
+rm \
+  --force \
+  mlton-20210117-1.amd64-linux-glibc2.31.tgz;
+
+sudo mv /usr/local/mlton-20210117-1.amd64-linux-glibc2.31 /usr/local/mlton;
+
+echo '' >> /etc/profile
+echo 'export PATH="$PATH:/usr/local/mlton/bin"' >> /etc/profile
+echo '' >> /etc/profile
+
+popd;
