@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e;
+
+wget \
+  --output-documet /tmp/overpass.zip \
+  "https://fonts.google.com/download?family=Overpass";
+mkdir --parents /usr/local/share/fonts;
+unzip \
+  -d /usr/local/share/fonts
+  /tmp/overpass.zip;
+pushd /usr/local/share/fonts;
+fc-cache;
+popd;
