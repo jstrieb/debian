@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e;
+
+THEME="green_blocks"
+
+pushd /tmp;
+
+git clone "https://github.com/adi1090x/plymouth-themes.git";
+pushd plymouth-themes;
+cp \
+  --recursive \
+  "$(find . -iname "${THEME}")" \
+  /usr/share/plymouth/themes/;
+plymouth-set-default-theme -R "${THEME}";
+popd;
+rm \
+  --recursive \
+  --force \
+  plymouth-themes;
+
+popd;
