@@ -13,7 +13,7 @@ tar \
   --directory /usr/local \
   --extract \
   --gzip \
-  --flie /tmp/go1.18.3.linux-amd64.tar.gz;
+  --file /tmp/go1.18.3.linux-amd64.tar.gz;
 rm \
   --force \
   /tmp/go1.18.3.linux-amd64.tar.gz;
