@@ -54,3 +54,5 @@ tshark reaver bully cowpatty pciutils
 openjdk-11-djk openjdk-11-jre
 bash-completion
 mupdf
+mpv
+shellcheck
