@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e;
+
+pushd /etc/skel;
+
+git clone "https://github.com/jstrieb/dotfiles.git";
+cd dotfiles;
+cp \
+  --recursive \
+  .* \
+  /etc/skel/;
+cp \
+  motd \
+  /etc/motd;
+rm \
+  --recursive \
+  --force \
+  /etc/skel/.git \
+  /etc/skel/.gitignore;
+
+popd;
