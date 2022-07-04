@@ -51,7 +51,7 @@ makeself
 net-tools
 aircrack-ng
 tshark reaver bully cowpatty pciutils
-openjdk-11-djk openjdk-11-jre
+openjdk-11-jdk openjdk-11-jre
 bash-completion
 mupdf
 mpv
