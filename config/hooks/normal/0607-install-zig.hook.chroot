@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -e;
+
+pushd /tmp;
+
+wget \
+  --output-document zig-linux-x86_64-0.10.0-dev.2836+2360f8c49.tar.xz \
+  "https://ziglang.org/builds/zig-linux-x86_64-0.10.0-dev.2836+2360f8c49.tar.xz";
+tar \
+  --directory /usr/local \
+  --extract \
+  --xz \
+  --file zig-linux-x86_64-0.10.0-dev.2836+2360f8c49.tar.xz;
+rm \
+  --force \
+  zig-linux-x86_64-0.10.0-dev.2836+2360f8c49.tar.xz;
+
+mv /usr/local/zig-linux-x86_64-0.10.0-dev.2836+2360f8c49 /usr/local/zig
+
+echo '' >> /etc/profile
+echo 'export PATH="$PATH:/usr/local/zig"' >> /etc/profile
+echo '' >> /etc/profile
+
+popd;
