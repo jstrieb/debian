@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -e;
+
+pushd /tmp;
+
+git clone "https://github.com/robertdavidgraham/masscan";
+pushd masscan;
+make -j;
+cp bin/masscan /usr/local/bin/;
+popd;
+rm \
+  --recursive \
+  --force \
+  masscan;
+
+popd;
