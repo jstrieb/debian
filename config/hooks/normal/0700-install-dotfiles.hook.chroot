@@ -17,6 +17,13 @@ rm \
   --recursive \
   --force \
   /etc/skel/.git \
-  /etc/skel/.gitignore;
+  /etc/skel/.gitignore \
+  /etc/skel/grub/;
+
+cat grub/default \
+  | sudo tee --append /etc/default/grub \
+  > /dev/null
+sudo cp grub/42_colors /etc/grub.d/
+sudo update-grub
 
 popd;
