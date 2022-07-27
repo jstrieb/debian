@@ -103,9 +103,9 @@ jobs:
           chmod +x ttyd
           sudo mv ttyd /usr/local/bin/ttyd
 
-          echo 'cd ~/work/debian-x205t/debian-x205t \
+          echo 'cd ~/work/debian/debian \
             && tmux new-session \
-              -c ~/work/debian-x205t/debian-x205t \
+              -c ~/work/debian/debian \
               -s "debian""$((RANDOM))" \
               -t debian' \
             >> ~/ttyd_run.sh
