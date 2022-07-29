@@ -23,7 +23,8 @@ rm \
 cat grub/default \
   | sudo tee --append /etc/default/grub \
   > /dev/null
-sudo cp grub/42_colors /etc/grub.d/
+sudo mkdir --parents /etc/grub.d/
+sudo cp grub/42_colors /etc/grub.d/42_colors
 sudo update-grub
 
 popd;
