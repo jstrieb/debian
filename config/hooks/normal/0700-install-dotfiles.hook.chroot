@@ -25,6 +25,6 @@ cat grub/default \
   > /dev/null
 sudo mkdir --parents /etc/grub.d/
 sudo cp grub/42_colors /etc/grub.d/42_colors
-sudo update-grub
+# sudo update-grub  # GRUB is not actually installed at this point
 
 popd;
